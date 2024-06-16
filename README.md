@@ -61,6 +61,12 @@ Aplikasi ini dikembangkan oleh:
 
 - **Nama**: Wira Sukma Saputra
 - **NIM**: 20210810075
+- **Nama**: Nadia Indah Puspita
+- **NIM**: 20210810074
+- **Nama**: Rifa Amalia Rahadatul Aisy 20210810067
+- **NIM**: 20210810075
+- **Nama**: Aldy Muhamad Lutfillah
+-  **NIM**: 20210810037
 
 ## 📄 Lisensi
 
