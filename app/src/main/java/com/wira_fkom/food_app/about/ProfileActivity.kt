@@ -44,8 +44,8 @@ class ProfileActivity : AppCompatActivity() {
                     binding.namaLengkap.editText?.setText(it.fullName)
                     binding.Email.editText?.setText(it.email)
                     binding.Linkedin.editText?.setText(it.linkedIn)
-                    binding.Telepon.editText?.setText(it.Telepon)
-                    binding.Github.editText?.setText(it.Github)
+                    binding.Telepon.editText?.setText(it.telepon)
+                    binding.Github.editText?.setText(it.github)
                 }
             }
 

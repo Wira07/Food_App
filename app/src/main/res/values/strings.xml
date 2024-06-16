@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Food_App</string>
     <string name="deskropsi">Food App adalah aplikasi yang bagus untuk Anda yang ingin memasak hidangan lezat dan sehat di rumah. Aplikasi ini mudah digunakan dan memiliki banyak fitur yang bermanfaat</string>
     <string name="wira_sukma_saputra">wira sukma saputra</string>
     <string name="welcome_friend">Selamat Datang, Teman</string>
@@ -54,7 +53,6 @@
     <string name="ingredient_text">Teks Bahan</string>
     <string name="ingredient_name">Nama Bahan</string>
     <string name="recipe_image">Gambar Resep</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">Fragment Pertama</string>
     <string name="second_fragment_label">Fragment Kedua</string>
     <string name="next">Berikutnya</string>
@@ -100,4 +98,34 @@
     <string name="favorites">Favorit</string>
     <string name="item_categories_image">Gambar Kategori Barang</string>
     <string name="hr">|</string>
+    <string name="profile_image_desc">foodfoodfoodfoodfoodfoodfoodfoodfoodfoodfoodfoodfoodfoodfoodfoodfoodfood</string>
+
+    <string name="app_name">Food App</string>
+    <string name="food_name">Nama Makanan</string>
+    <string name="description">Deskripsi</string>
+    <string-array name="data_name">
+        <item>Nasi Goreng</item>
+        <item>Sate Ayam</item>
+        <item>Gado-Gado</item>
+        <item>Rendang</item>
+        <item>Soto Ayam</item>
+        <item>Bakso</item>
+        <item>Pecel Lele</item>
+        <item>Nasi Padang</item>
+        <item>Mie Goreng</item>
+    </string-array>
+    <string-array name="data_description">
+        <item>Nasi Goreng adalah hidangan nasi yang digoreng dan biasanya dicampur dengan kecap manis, bawang putih, telur, dan berbagai bahan lainnya seperti ayam, udang, atau sayuran.</item>
+        <item>Sate Ayam adalah hidangan daging ayam yang dipotong kecil-kecil dan ditusuk pada tusukan bambu, kemudian dibakar dan disajikan dengan saus kacang.</item>
+        <item>Gado-Gado adalah salad Indonesia yang terdiri dari sayuran yang direbus atau dikukus, tahu, tempe, dan telur, yang disajikan dengan saus kacang.</item>
+        <item>Rendang adalah hidangan daging sapi yang dimasak perlahan dalam santan dan rempah-rempah sampai kering. Hidangan ini berasal dari Minangkabau, Sumatera Barat.</item>
+        <item>Soto Ayam adalah sup ayam khas Indonesia yang disajikan dengan bihun atau nasi, dan dilengkapi dengan telur, seledri, dan bawang goreng.</item>
+        <item>Bakso adalah bola daging yang terbuat dari campuran daging sapi giling dan tepung tapioka. Bakso biasanya disajikan dalam kuah kaldu sapi dengan mi, tahu, dan sayuran.</item>
+        <item>Pecel Lele adalah hidangan lele goreng yang disajikan dengan sambal tomat pedas dan lalapan seperti timun dan daun kemangi.</item>
+        <item>Nasi Padang adalah nasi yang disajikan dengan berbagai macam lauk pauk khas Padang, seperti rendang, ayam goreng, gulai, dan sambal.</item>
+        <item>Mie Goreng adalah mi yang digoreng dengan berbagai bahan seperti ayam, udang, sayuran, dan bumbu-bumbu seperti kecap manis dan saus sambal.</item>
+    </string-array>
+    <integer-array name="data_photo">
+        <item>@drawable/potato</item>
+    </integer-array>
 </resources>
