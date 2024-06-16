@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@drawable/backgroud4"
+    tools:context=".ui.GetStartedActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_food_app"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"/>
+
+    <TextView
+        android:id="@+id/foodapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food App"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_below="@id/image"
+        android:layout_marginTop="150dp"
+        android:fontFamily="@font/poppins_bold"/>
+
+    <TextView
+        android:id="@+id/deskripsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deskropsi"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:layout_below="@id/foodapp"
+        android:fontFamily="@font/poppins_bold"
+        android:layout_marginTop="20dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deskripsi"
+        android:layout_marginTop="30dp"
+        android:text="Get Started"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/black"
+        android:paddingRight="20dp"
+        android:drawableEnd="@drawable/next"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/shape_1">
+
+    </androidx.appcompat.widget.AppCompatButton>
+
+
+
+</RelativeLayout>

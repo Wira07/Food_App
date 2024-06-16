@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "754941863023",
+    "project_id": "gen-lang-client-0934978783",
+    "storage_bucket": "gen-lang-client-0934978783.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754941863023:android:cbd61797e351bb07eb199a",
+        "android_client_info": {
+          "package_name": "com.wira_fkom.food_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGyM1v4geyZKNBqsSYR6cDOt9swPJvvxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
