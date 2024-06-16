@@ -13,7 +13,7 @@ Selamat datang di **Food App**! Aplikasi ini dirancang untuk membantu pengguna m
 
 ## 📸 Cuplikan Layar
 
-![Screenshot](path/to/screenshot.png)
+![Screenshot](https://github.com/Wira07/Food_App/blob/master/app/src/main/res/drawable/food.png)
 
 ## 🚀 Instalasi
 
