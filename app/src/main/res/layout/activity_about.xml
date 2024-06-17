@@ -18,8 +18,19 @@
             android:id="@+id/profile_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/logo_food_app"
-            android:layout_centerVertical="true" />
+            android:src="@drawable/ic_person"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginRight="10dp"/>
+
+        <ImageView
+            android:id="@+id/upload_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignRight="@id/profile_image"
+            android:layout_alignBottom="@id/profile_image"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_upload"/> <!-- Make sure you have an upload icon in drawable -->
 
         <TextView
             android:id="@+id/full_name"
@@ -30,7 +41,7 @@
             android:includeFontPadding="false"
             android:text="@string/app_name"
             android:fontFamily="@font/poppins_bold"
-            android:layout_toRightOf="@+id/profile_image"
+            android:layout_toRightOf="@id/profile_image"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"/>
 
@@ -42,12 +53,9 @@
             android:text="@string/app_name"
             android:textColor="@color/white"
             android:layout_toRightOf="@id/profile_image"
-            android:layout_below="@+id/full_name"
-            android:layout_centerVertical="true"
+            android:layout_below="@id/full_name"
             android:layout_marginLeft="10dp"/>
-
     </RelativeLayout>
-
 
 
     <LinearLayout
@@ -66,9 +74,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text">
-
-            </com.google.android.material.textfield.TextInputEditText>
+                android:inputType="text"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -82,9 +88,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text">
-
-            </com.google.android.material.textfield.TextInputEditText>
+                android:inputType="textEmailAddress"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,9 +102,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text">
-
-            </com.google.android.material.textfield.TextInputEditText>
+                android:inputType="text"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,9 +116,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text">
-
-            </com.google.android.material.textfield.TextInputEditText>
+                android:inputType="phone"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,19 +130,25 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text">
-
-            </com.google.android.material.textfield.TextInputEditText>
+                android:inputType="text"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/botton"
+            android:id="@+id/button"
             android:text="Update"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </Button>
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:itemTextColor="@color/black_overlay"
+        app:menu="@menu/menu_item"/>
+
 </LinearLayout>

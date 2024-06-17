@@ -50,6 +50,10 @@ android {
 }
 
 dependencies {
+
+    implementation ("com.google.firebase:firebase-storage:20.0.0")
+    implementation ("com.github.bumptech.glide:glide:4.11.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.11.0")
     implementation("androidx.room:room-runtime:2.5.0")
     kapt("androidx.room:room-compiler:2.5.0")
     implementation("androidx.room:room-ktx:2.5.0")

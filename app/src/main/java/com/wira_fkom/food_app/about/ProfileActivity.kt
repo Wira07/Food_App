@@ -1,16 +1,33 @@
 package com.wira_fkom.food_app.about
 
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import com.wira_fkom.food_app.R
 import com.wira_fkom.food_app.data.UserProfile
 import com.wira_fkom.food_app.databinding.ActivityAboutBinding
+import com.wira_fkom.food_app.ui.HomeActivity
+import java.util.*
 
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var database: DatabaseReference
     private lateinit var binding: ActivityAboutBinding
+    private lateinit var auth: FirebaseAuth
+    private val PICK_IMAGE_REQUEST = 71
+    private var filePath: Uri? = null
+    private lateinit var storage: FirebaseStorage
+    private lateinit var storageReference: StorageReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +36,10 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityAboutBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        auth = FirebaseAuth.getInstance()
+        storage = FirebaseStorage.getInstance()
+        storageReference = storage.reference
 
         // Set title and enable back button
         title = "Profile"
@@ -30,9 +51,19 @@ class ProfileActivity : AppCompatActivity() {
         // Fetch and display user profile data
         fetchUserProfile()
 
+        setupBottomNavigation()
+
         // Set button click listener
-        binding.botton.setOnClickListener {
+        binding.button.setOnClickListener {
             updateUserProfile()
+        }
+
+        // Set profile image click listener
+        binding.profileImage.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
         }
     }
 
@@ -46,6 +77,10 @@ class ProfileActivity : AppCompatActivity() {
                     binding.Linkedin.editText?.setText(it.linkedIn)
                     binding.Telepon.editText?.setText(it.telepon)
                     binding.Github.editText?.setText(it.github)
+                    if (it.profileImage.isNotEmpty()) {
+                        // Load the profile image using Glide or any other image loading library
+                        Glide.with(this@ProfileActivity).load(it.profileImage).into(binding.profileImage)
+                    }
                 }
             }
 
@@ -62,7 +97,7 @@ class ProfileActivity : AppCompatActivity() {
         val telepon = binding.Telepon.editText?.text.toString()
         val github = binding.Github.editText?.text.toString()
 
-        val userProfile = UserProfile(fullName, email, linkedIn, telepon, github)
+        var userProfile = UserProfile(fullName, email, linkedIn, telepon, github, "")
 
         // Write a message to the database
         database.child("users").child("userProfile").setValue(userProfile)
@@ -77,6 +112,40 @@ class ProfileActivity : AppCompatActivity() {
             .addOnFailureListener {
                 // Handle failure
             }
+
+        // Upload profile image if selected
+        filePath?.let {
+            val ref = storageReference.child("images/" + UUID.randomUUID().toString())
+            ref.putFile(it)
+                .addOnSuccessListener { taskSnapshot ->
+                    ref.downloadUrl.addOnSuccessListener { uri ->
+                        userProfile = UserProfile(fullName, email, linkedIn, telepon, github, uri.toString())
+                        database.child("users").child("userProfile").setValue(userProfile)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
+                            }
+                    }
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Failed to upload image", Toast.LENGTH_SHORT).show()
+                }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+            if (data == null || data.data == null) {
+                return
+            }
+            filePath = data.data
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
+                binding.profileImage.setImageBitmap(bitmap)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -87,6 +156,32 @@ class ProfileActivity : AppCompatActivity() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun setupBottomNavigation() {
+        val bottomNavigationView = binding.bottomNavigation
+
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_home -> {
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.navigation_favorite -> {
+                    // Handle favorite action (example)
+                    // Replace with your logic
+                    true
+                }
+
+                R.id.navigation_profile -> {
+                    // Navigate to profile activity
+                    true
+                }
+                else -> false
+            }
         }
     }
 }
