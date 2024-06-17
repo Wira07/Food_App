@@ -57,10 +57,44 @@ Selamat datang di **Food App**! Aplikasi ini dirancang untuk membantu pengguna m
 
 ## 👥 Tim Pengembang
 
-Aplikasi ini dikembangkan oleh:
+Berikut adalah tampilan informasi pengembang aplikasi yang lebih menarik dengan emoji dan tugas masing-masing anggota:
 
-- **Nama**: Wira Sukma Saputra
+---
+
+## Aplikasi ini dikembangkan oleh:
+
+### 👨‍💻 **Wira Sukma Saputra**
 - **NIM**: 20210810075
+- **Tugas**: 
+  - Pemrograman Backend
+  - Integrasi API
+  - Full Ngoding
+  - Full Slicing
+  - Pengelolaan Database
+
+### 👩‍💻 **Nadia Indah Puspita**
+- **NIM**: 20210810074
+- **Tugas**: 
+  - Desain UI/UX
+  - Pengembangan Frontend
+  - Penulisan Dokumentasi
+
+### 👩‍💻 **Rifa Amalia Rahadatul Aisy**
+- **NIM**: 20210810067
+- **Tugas**: 
+  - Pengujian dan Debugging
+  - Manajemen Proyek
+  - Pengelolaan Konten
+
+### 👨‍💻 **Aldy Muhamad Lutfillah**
+- **NIM**: 20210810037
+- **Tugas**: 
+  - Pengembangan Mobile App
+  - Implementasi Fitur
+  - Optimasi Kinerja Aplikasi
+---
+
+Dengan pembagian tugas yang jelas dan penggunaan emoji, informasi ini menjadi lebih menarik dan mudah dibaca.
 
 ## 📄 Lisensi
 
