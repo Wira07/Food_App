@@ -169,17 +169,8 @@ class ProfileActivity : AppCompatActivity() {
                     startActivity(intent)
                     true
                 }
-
-                R.id.navigation_favorite -> {
-                    // Handle favorite action (example)
-                    // Replace with your logic
-                    true
-                }
-
-                R.id.navigation_profile -> {
-                    // Navigate to profile activity
-                    true
-                }
+                R.id.navigation_favorite -> true
+                R.id.navigation_profile -> true
                 else -> false
             }
         }
