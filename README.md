@@ -76,8 +76,10 @@ Berikut adalah tampilan informasi pengembang aplikasi yang lebih menarik dengan 
 - **NIM**: 20210810074
 - **Tugas**: 
   - Desain UI/UX
-  - Pengembangan Frontend
+  - Pengembangan Mockup
   - Penulisan Dokumentasi
+  - Desain Wireframe
+  - PPT
 
 ### 👩‍💻 **Rifa Amalia Rahadatul Aisy**
 - **NIM**: 20210810067
@@ -89,9 +91,10 @@ Berikut adalah tampilan informasi pengembang aplikasi yang lebih menarik dengan 
 ### 👨‍💻 **Aldy Muhamad Lutfillah**
 - **NIM**: 20210810037
 - **Tugas**: 
-  - Pengembangan Mobile App
-  - Implementasi Fitur
+  - Uji Coba Mobile App
+  - Testing Fitur
   - Optimasi Kinerja Aplikasi
+  - Pembuatan Laporan
 ---
 
 Dengan pembagian tugas yang jelas dan penggunaan emoji, informasi ini menjadi lebih menarik dan mudah dibaca.
