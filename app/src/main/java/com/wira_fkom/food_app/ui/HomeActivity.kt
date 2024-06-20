@@ -12,6 +12,7 @@ import com.wira_fkom.food_app.databinding.ActivityHomeBinding
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var adapter: FoodViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,13 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> true
-                R.id.navigation_favorite -> true
+                R.id.navigation_favorite -> {
+                    val intent = Intent(this, FavoriteActivity::class.java).apply {
+                        putParcelableArrayListExtra("EXTRA_FAVORITES", ArrayList(adapter.getFavorites()))
+                    }
+                    startActivity(intent)
+                    true
+                }
                 R.id.navigation_profile -> {
                     val intent = Intent(this, ProfileActivity::class.java)
                     startActivity(intent)
@@ -44,16 +51,20 @@ class HomeActivity : AppCompatActivity() {
         val recyclerView = binding.recyclerViewRecipes
 
         val names = resources.getStringArray(R.array.data_name)
-        val descriptions = resources.getStringArray(R.array.data_description)
+        val descriptionsArray = resources.getStringArray(R.array.data_description)
         val imageResIds = resources.obtainTypedArray(R.array.data_photo)
 
-        val userProfiles = names.zip(descriptions).mapIndexed { index, pair ->
-            UserProfile(pair.first, imageResIds.getResourceId(index, -1), pair.second)
+        val userProfiles = names.mapIndexed { index, name ->
+            UserProfile(
+                name,
+                imageResIds.getResourceId(index, -1),
+                descriptionsArray[index].split("\n")
+            )
         }
 
         imageResIds.recycle()
 
-        val adapter = FoodViewAdapter(this, userProfiles)
+        adapter = FoodViewAdapter(this, userProfiles)
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(true)
     }

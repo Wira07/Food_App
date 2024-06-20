@@ -8,11 +8,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.wira_fkom.food_app.R
 import com.wira_fkom.food_app.about.ProfileActivity
 import com.wira_fkom.food_app.adapter.DescriptionAdapter
+import com.wira_fkom.food_app.adapter.FoodViewAdapter
 import com.wira_fkom.food_app.databinding.ActivityDeskripsiBinding
 
 class DeskripsiActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDeskripsiBinding
+    private lateinit var adapter: FoodViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,14 +26,13 @@ class DeskripsiActivity : AppCompatActivity() {
 
         setupBottomNavigation()
 
-        val description = intent.getStringExtra("EXTRA_DESCRIPTION")
-        if (description != null) {
-            val descriptionList = description.split("\n")
+        val descriptions = intent.getStringArrayListExtra("EXTRA_DESCRIPTION")
+        if (descriptions != null) {
             binding.recyclerViewDescription.layoutManager = LinearLayoutManager(this)
-            binding.recyclerViewDescription.adapter = DescriptionAdapter(descriptionList)
+            binding.recyclerViewDescription.adapter = DescriptionAdapter(descriptions)
         }
 
-        val imageResId = intent.getIntExtra("EXTRA_IMAGE_RES_ID", R.drawable.potato) // default image
+        val imageResId = intent.getIntExtra("EXTRA_IMAGE_RES_ID", R.drawable.potato)
         binding.image.setImageResource(imageResId)
     }
 
@@ -46,7 +47,12 @@ class DeskripsiActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_favorite -> {
-                    // Handle favorite navigation
+                    val intent = Intent(this, FavoriteActivity::class.java)
+                    startActivity(intent)
+//                    val intent = Intent(this, FavoriteActivity::class.java).apply {
+//                        putParcelableArrayListExtra("EXTRA_FAVORITES", ArrayList(adapter.getFavorites()))
+//                    }
+//                    startActivity(intent)
                     true
                 }
                 R.id.navigation_profile -> {
@@ -62,7 +68,7 @@ class DeskripsiActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                finish() // Navigate back to the previous activity
+                finish()
                 true
             }
             else -> super.onOptionsItemSelected(item)
