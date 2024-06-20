@@ -45,10 +45,13 @@ class HomeActivity : AppCompatActivity() {
 
         val names = resources.getStringArray(R.array.data_name)
         val descriptions = resources.getStringArray(R.array.data_description)
+        val imageResIds = resources.obtainTypedArray(R.array.data_photo)
 
-        val userProfiles = names.zip(descriptions).map {
-            UserProfile(it.first, "", it.second)
+        val userProfiles = names.zip(descriptions).mapIndexed { index, pair ->
+            UserProfile(pair.first, imageResIds.getResourceId(index, -1), pair.second)
         }
+
+        imageResIds.recycle()
 
         val adapter = FoodViewAdapter(this, userProfiles)
         recyclerView.adapter = adapter

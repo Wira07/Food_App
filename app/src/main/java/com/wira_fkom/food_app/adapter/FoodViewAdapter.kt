@@ -5,7 +5,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.wira_fkom.food_app.R
 import com.wira_fkom.food_app.data.UserProfile
 import com.wira_fkom.food_app.databinding.ItemRecipeBinding
 import com.wira_fkom.food_app.ui.DeskripsiActivity
@@ -32,12 +31,13 @@ class FoodViewAdapter(
     inner class FoodViewHolder(private val binding: ItemRecipeBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(userProfile: UserProfile) {
             // Set image and title (use proper image loading in a real application)
-            binding.recipeImage.setImageResource(R.drawable.potato) // replace with actual image source
+            binding.recipeImage.setImageResource(userProfile.imageResId)
             binding.recipeTitle.text = userProfile.name
 
             binding.recipeImage.setOnClickListener {
                 val intent = Intent(context, DeskripsiActivity::class.java).apply {
                     putExtra("EXTRA_DESCRIPTION", userProfile.description)
+                    putExtra("EXTRA_IMAGE_RES_ID", userProfile.imageResId)
                 }
                 context.startActivity(intent)
             }

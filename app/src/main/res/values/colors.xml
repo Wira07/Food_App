@@ -5,5 +5,7 @@
     <color name="sage_muda">#BFF6C3</color>
     <color name="sage">#9DAF89</color>
     <color name="gray">#A1A1A1</color>
+    <color name="search">#DAD0D0</color>
+    <color name="orange">#F2923A</color>
     <color name="black_overlay">#66000000</color>
 </resources>

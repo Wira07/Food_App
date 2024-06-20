@@ -58,40 +58,15 @@
     <string name="next">Berikutnya</string>
     <string name="previous">Sebelumnya</string>
     <string name="lorem_ipsum">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
-        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
-        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
-        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
-        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
-        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
-        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
-        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
-        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
-        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
-        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
-        bibendum, vel congue leo egestas.\n\n
-        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
-        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
-        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
-        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
-        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
-        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
-        est.\n\n
-        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
-        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
-        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
-        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
-        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
-        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
-        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
-        convallis.\n\n
-        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
-        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
-        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
-        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
-        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
-        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
-        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a, ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.
+
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae, molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor bibendum, vel congue leo egestas.
+
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel, molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula, in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque est.
+
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh. Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc, quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus convallis.
+
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper, libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="no_internet_connection">Tidak Ada Koneksi Internet</string>
     <string name="home">Beranda</string>
@@ -103,29 +78,236 @@
     <string name="app_name">Food App</string>
     <string name="food_name">Nama Makanan</string>
     <string name="description">Deskripsi</string>
+
     <string-array name="data_name">
-        <item>Nasi Goreng</item>
-        <item>Sate Ayam</item>
-        <item>Gado-Gado</item>
+        <item>Ayam Betutu</item>
+        <item>Pempek</item>
+        <item>Soto Padang</item>
         <item>Rendang</item>
-        <item>Soto Ayam</item>
-        <item>Bakso</item>
-        <item>Pecel Lele</item>
-        <item>Nasi Padang</item>
-        <item>Mie Goreng</item>
+        <item>Sop Kondro</item>
+        <item>Bakso Sapi</item>
+        <item>Pecel Lele Crispy</item>
+        <item>Nasi Uduk</item>
+        <item>Mie Goreng Jawa</item>
+        <item>sate lilit khas bali</item>
     </string-array>
+
     <string-array name="data_description">
-        <item>Nasi Goreng adalah hidangan nasi yang digoreng dan biasanya dicampur dengan kecap manis, bawang putih, telur, dan berbagai bahan lainnya seperti ayam, udang, atau sayuran.</item>
-        <item>Sate Ayam adalah hidangan daging ayam yang dipotong kecil-kecil dan ditusuk pada tusukan bambu, kemudian dibakar dan disajikan dengan saus kacang.</item>
-        <item>Gado-Gado adalah salad Indonesia yang terdiri dari sayuran yang direbus atau dikukus, tahu, tempe, dan telur, yang disajikan dengan saus kacang.</item>
-        <item>Rendang adalah hidangan daging sapi yang dimasak perlahan dalam santan dan rempah-rempah sampai kering. Hidangan ini berasal dari Minangkabau, Sumatera Barat.</item>
-        <item>Soto Ayam adalah sup ayam khas Indonesia yang disajikan dengan bihun atau nasi, dan dilengkapi dengan telur, seledri, dan bawang goreng.</item>
-        <item>Bakso adalah bola daging yang terbuat dari campuran daging sapi giling dan tepung tapioka. Bakso biasanya disajikan dalam kuah kaldu sapi dengan mi, tahu, dan sayuran.</item>
-        <item>Pecel Lele adalah hidangan lele goreng yang disajikan dengan sambal tomat pedas dan lalapan seperti timun dan daun kemangi.</item>
-        <item>Nasi Padang adalah nasi yang disajikan dengan berbagai macam lauk pauk khas Padang, seperti rendang, ayam goreng, gulai, dan sambal.</item>
-        <item>Mie Goreng adalah mi yang digoreng dengan berbagai bahan seperti ayam, udang, sayuran, dan bumbu-bumbu seperti kecap manis dan saus sambal.</item>
+        <item>•	1 ekor ayam utuh (sekitar 1,5 kg)
+•	2 batang serai, memarkan
+•	4 lembar daun jeruk purut, sobek
+•	4 lembar daun salam
+•	4 lembar daun salam (salam Jawa)
+•	1 lembar daun kunyit (opsional)
+•	1 cangkir santan
+•	2 sendok makan air jeruk nipis
+•	Garam dan merica secukupnya
+•	Daun pisang atau aluminium foil untuk membungkus
+Bumbu Halus (Bumbu Betutu)
+•	10 butir bawang merah
+•	6 siung bawang putih
+•	5 buah cabai merah (sesuaikan dengan selera)
+•	5 buah cabai rawit (opsional, untuk rasa pedas ekstra)
+•	1 ruas jahe
+•	1 ruas lengkuas
+•	1 ruas kunyit
+•	1 sendok makan ketumbar, sangrai
+•	1 sendok teh merica hitam, sangrai
+•	1 sendok teh bubuk pala
+•	1 sendok teh terasi, bakar
+•	1 sendok makan asam Jawa
+•	2 sendok makan minyak sayur
+</item>
+        <item>•	500 gram daging ikan tenggiri, giling halus
+•	300 ml air es
+•	2 siung bawang putih, haluskan
+•	1 sendok makan garam
+•	1 sendok teh gula pasir
+•	300-400 gram tepung sagu
+Bahan Kuah Cuko
+•	500 ml air
+•	250 gram gula merah, sisir halus
+•	50 gram asam jawa
+•	6 siung bawang putih, haluskan
+•	10 buah cabai rawit, haluskan (sesuaikan dengan selera)
+•	1 sendok makan ebi (udang kering), sangrai dan haluskan
+•	Garam secukupnya
+Bahan Pelengkap
+•	Mi kuning
+•	Timun, potong dadu kecil
+•	Ebi (udang kering), sangrai dan haluskan
+</item>
+        <item>•	500 gram daging ikan tenggiri, giling halus
+•	300 ml air es
+•	2 siung bawang putih, haluskan
+•	1 sendok makan garam
+•	1 sendok teh gula pasir
+•	300-400 gram tepung sagu
+Bahan Kuah Cuko
+•	500 ml air
+•	250 gram gula merah, sisir halus
+•	50 gram asam jawa
+•	6 siung bawang putih, haluskan
+•	10 buah cabai rawit, haluskan (sesuaikan dengan selera)
+•	1 sendok makan ebi (udang kering), sangrai dan haluskan
+•	Garam secukupnya
+Bahan Pelengkap
+•	Mi kuning
+•	Timun, potong dadu kecil
+•	Ebi (udang kering), sangrai dan haluskan
+
+</item>
+        <item>•	1 kg daging sapi, potong kotak besar
+•	1 liter santan kental (dari 3-4 butir kelapa)
+•	2 batang serai, memarkan
+•	4 lembar daun jeruk purut
+•	2 lembar daun kunyit, sobek-sobek
+•	2 cm asam kandis atau asam gelugur
+•	Garam secukupnya
+•	Gula merah secukupnya (opsional)
+Bumbu Halus
+•	12 butir bawang merah
+•	6 siung bawang putih
+•	5 buah cabai merah besar, buang bijinya
+•	10-15 buah cabai merah keriting (sesuaikan dengan tingkat kepedasan yang diinginkan)
+•	3 cm jahe
+•	5 cm lengkuas
+•	3 cm kunyit
+•	5 butir kemiri, sangrai
+•	1 sendok teh ketumbar
+</item>
+        <item>Bahan-bahan
+•	1 kg iga sapi, potong-potong
+•	2 liter air
+•	2 batang serai, memarkan
+•	4 lembar daun salam
+•	4 lembar daun jeruk purut
+•	2 cm kayu manis
+•	3 butir cengkeh
+•	1 buah bunga lawang (pekak)
+•	Garam dan merica secukupnya
+•	Minyak untuk menumis
+Bumbu Halus
+•	8 butir bawang merah
+•	4 siung bawang putih
+•	5 butir kemiri, sangrai
+•	3 cm jahe
+•	3 cm lengkuas
+•	2 cm kunyit
+•	1 sendok makan ketumbar, sangrai
+•	1/2 sendok teh jintan, sangrai
+•	1 sendok teh lada hitam butiran, sangrai
+Bahan Pelengkap
+•	Bawang goreng
+•	Daun bawang, iris halus
+•	Jeruk nipis, potong-potong
+•	Sambal (opsional)
+</item>
+        <item>Bahan:
+400 gr daging sapi giling
+100 gr daging ayam
+100 cc es batu serut
+2 butir putih telur
+1/2 sdt baking Powder
+2 sdm bawang putih goreng
+3 sdm bawang merah goreng
+4 siung bawang putih dihaluskan
+1/2 sdt merica
+1 sdt garam
+1/2 sdt gula
+9 sdm tepung sagu
+</item>
+        <item>Bahan Pecel Lele Crispy
+•	1 bungkus Kobe Tepung Kentucky SuperCrispy (210 gr)
+•	140 ml air
+•	4 ekor lele (cuci bersih dan beri perasan air jeruk nipis)
+•	400 ml minyak goreng
+Bahan Sambal Pecel
+•	4 buah bawang merah
+•	4 butir kemiri
+•	1 buah tomat (ukuran besar)
+•	1 bungkus terasi
+•	50 ml minyak
+•	1 sachet BonCabe level 30, rasa Original
+•	1 sendok teh garam
+•	2 sendok teh gula merah
+•	1 butir jeruk limau
+Bahan Pelengkap
+•	nasi putih secukupnya
+•	lalapan secukupnya
+</item>
+        <item>Bahan-Bahan yang Dibutuhkan
+Bahan-bahan yang dibutuhkan untuk membuat nasi uduk gurih adalah sebagai berikut:
+•	Beras 4 cup
+•	Santan 1 bungkus
+•	Bawang putih 3 siung
+•	Bawang merah 4 siung
+•	Jahe 1 ruas jari
+•	Serai secukupnya
+•	Garam
+•	Daun salam 4-5 lembar
+</item>
+        <item>Bahan Mie Goreng Jawa:
+•	400 gram mie
+•	Kol (iris)
+•	2 butir telur
+•	1/2 buah tomat (potong-potong)
+•	Bakso secukupnya
+•	Ayam suwir secukupnya
+•	Daun bawang secukupnya (iris)
+•	Sawi secukupnya (potong-potong)
+•	1 sdm saus tiram
+•	1 sdm kecap asin
+•	2 sdm kecap manis
+•	1 sdt penyedap rasa
+•	Merica secukupnya
+Bahan Bumbu Halus:
+•	3 siung bawang putih
+•	5 butir bawang merah
+•	Cabe sesuai selera
+•	2 buah kemiri
+•	Minyak secukupnya
+•	Air secukupnya
+
+</item>
+        <item>
+            Bahan :
+500 g daging ayam cincang
+2 sdm minyak sayur
+50 g bawang merah, cincang halus
+20 g bawang putih, cincang halus
+2 buah cabai merah, buang bijinya, cincang halus
+10 g jahe, cincang halu
+10 g lengkuas, cincang halus
+5 g kencur, cincang halus
+5 g kunyit, cincang halus
+1/2 sdt merica bubuk
+1 butir cengkih, haluskan
+1/2 sdt pala bubu
+2 g g ketumbar halus
+2 g biji wijen putih, haluskan
+1/2 sdt merica
+1 sdt garam
+12 batang buah serai
+1 lembar daun jeruk, iris halus
+30 g g kelapa parut
+12 batang serai
+
+
+
+</item>
     </string-array>
+
     <integer-array name="data_photo">
-        <item>@drawable/potato</item>
+        <item>@drawable/ayam_betutu</item>
+        <item>@drawable/pempek</item>
+        <item>@drawable/soto_padang</item>
+        <item>@drawable/rendang</item>
+        <item>@drawable/sop_konro</item>
+        <item>@drawable/bakso_sapi</item>
+        <item>@drawable/pecel_lele_crispy</item>
+        <item>@drawable/nasi_uduk</item>
+        <item>@drawable/mie_goreng_jawa</item>
+        <item>@drawable/sate_lilit_bali</item>
     </integer-array>
 </resources>
