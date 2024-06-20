@@ -1,8 +1,11 @@
 package com.wira_fkom.food_app.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.ProgressBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import com.wira_fkom.food_app.R
 import com.wira_fkom.food_app.about.ProfileActivity
 import com.wira_fkom.food_app.adapter.FoodViewAdapter
@@ -13,6 +16,7 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var adapter: FoodViewAdapter
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +26,8 @@ class HomeActivity : AppCompatActivity() {
         title = "Halaman Utama"
         setupBottomNavigation()
         setupRecyclerView()
+
+        binding.progressBar.visibility = View.GONE
     }
 
     private fun setupBottomNavigation() {
@@ -48,6 +54,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
+        binding.progressBar.visibility = View.VISIBLE
+
         val recyclerView = binding.recyclerViewRecipes
 
         val names = resources.getStringArray(R.array.data_name)
@@ -67,5 +75,7 @@ class HomeActivity : AppCompatActivity() {
         adapter = FoodViewAdapter(this, userProfiles)
         recyclerView.adapter = adapter
         recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
+
     }
 }

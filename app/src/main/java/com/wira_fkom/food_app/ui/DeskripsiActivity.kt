@@ -3,6 +3,7 @@ package com.wira_fkom.food_app.ui
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wira_fkom.food_app.R
@@ -34,6 +35,8 @@ class DeskripsiActivity : AppCompatActivity() {
 
         val imageResId = intent.getIntExtra("EXTRA_IMAGE_RES_ID", R.drawable.potato)
         binding.image.setImageResource(imageResId)
+
+        setupShareButton()
     }
 
     private fun setupBottomNavigation() {
@@ -49,10 +52,6 @@ class DeskripsiActivity : AppCompatActivity() {
                 R.id.navigation_favorite -> {
                     val intent = Intent(this, FavoriteActivity::class.java)
                     startActivity(intent)
-//                    val intent = Intent(this, FavoriteActivity::class.java).apply {
-//                        putParcelableArrayListExtra("EXTRA_FAVORITES", ArrayList(adapter.getFavorites()))
-//                    }
-//                    startActivity(intent)
                     true
                 }
                 R.id.navigation_profile -> {
@@ -63,6 +62,26 @@ class DeskripsiActivity : AppCompatActivity() {
                 else -> false
             }
         }
+    }
+
+    private fun setupShareButton() {
+        val btnShare: Button = findViewById(R.id.btnShare)
+        btnShare.setOnClickListener {
+            val shareIntent = Intent().apply {
+                action = Intent.ACTION_SEND
+                putExtra(Intent.EXTRA_TEXT, createShareContent())
+                type = "text/plain"
+            }
+            startActivity(Intent.createChooser(shareIntent, getString(R.string.share_with)))
+        }
+    }
+
+    private fun createShareContent(): String {
+        val title = binding.textViewTitle.text.toString()
+        val descriptions = (binding.recyclerViewDescription.adapter as DescriptionAdapter).getDescriptions()
+        val descriptionText = descriptions.joinToString("\n")
+
+        return "$title\n\n$descriptionText"
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

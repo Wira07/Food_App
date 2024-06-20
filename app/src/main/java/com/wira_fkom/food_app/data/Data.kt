@@ -8,6 +8,7 @@ data class UserProfile(
     val name: String = "",
     val imageResId: Int,
     val description: List<String> = listOf(),
+    val isFavorite: Boolean = false,
     val fullName: String = "",
     val email: String = "",
     val linkedIn: String = "",

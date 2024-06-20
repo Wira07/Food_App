@@ -1,161 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".about.ProfileActivity">
 
     <RelativeLayout
-        android:id="@+id/Profil"
+        android:id="@+id/rellay1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:padding="20dp"
+        android:layout_height="wrap_content"
         android:background="@color/sage"
-        android:layout_alignParentTop="true">
+        android:paddingBottom="10dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_person"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginRight="10dp" />
-
-        <ImageView
-            android:id="@+id/upload_icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignRight="@id/profile_image"
-            android:layout_alignBottom="@id/profile_image"
-            android:layout_margin="4dp"
-            android:src="@drawable/ic_upload" /> <!-- Pastikan Anda memiliki ikon upload di drawable -->
-
-        <TextView
-            android:id="@+id/full_name"
+        <RelativeLayout
+            android:id="@+id/imgUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="@color/white"
-            android:includeFontPadding="false"
-            android:text="@string/app_name"
-            android:fontFamily="@font/poppins_bold"
-            android:layout_toRightOf="@id/profile_image"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_border">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_photo_profile"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginBottom="9dp"
+                android:background="@drawable/circle_border"
+                android:padding="3dp"
+                android:src="@drawable/ic_person" />
+
+        </RelativeLayout>
 
         <TextView
+            android:id="@+id/nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:includeFontPadding="false"
-            android:textSize="14sp"
-            android:text="@string/app_name"
+            android:layout_below="@+id/imgUser"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15sp"
+            android:fontFamily="sans-serif-light"
+            android:text="Wira Sukma Saputra"
             android:textColor="@color/white"
-            android:layout_toRightOf="@id/profile_image"
-            android:layout_below="@id/full_name"
-            android:layout_marginLeft="10dp" />
+            android:textSize="27sp" />
+
+        <TextView
+            android:id="@+id/univ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nama"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif"
+            android:text="Mahasiswa Universitas Kuningan "
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
     </RelativeLayout>
 
     <LinearLayout
-        android:id="@+id/formContainer"
+        android:id="@+id/linlay1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_below="@id/Profil"
-        android:layout_above="@id/bottomNavigation">
+        android:layout_below="@id/rellay1"
+        android:orientation="horizontal">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nama_lengkap"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Full Name"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/sage"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="1.284"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Email"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="followers"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/sage"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress" />
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="1008"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Linkedin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="LinkedIn"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:text="following"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
+            </LinearLayout>
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Telepon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Telepon"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Github"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Github"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button"
-            android:text="Update"
-            android:background="@drawable/shape_2"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </androidx.appcompat.widget.AppCompatButton>
+        </RelativeLayout>
 
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigation"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:padding="12dp"
-        android:layout_marginBottom="12dp"
-        android:layout_alignParentBottom="true"
-        app:itemTextColor="@color/black_overlay"
-        app:menu="@menu/menu_item" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/linlay1">
+
+
+        <RelativeLayout
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/linlay1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email"
+                        android:textColor="@color/gray"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="wiralodrasaputra07@gmail.com"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="WhatsApp"
+                        android:textColor="@color/gray"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="+6281219195308"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Instagram"
+                        android:textColor="@color/gray"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:text="https://www.instagram.com/jawira_12"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@color/gray" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Github"
+                        android:textColor="@color/gray"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:text="https://github.com/Wira07"
+                        android:textColor="#000000"
+                        android:textSize="15sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@color/gray" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

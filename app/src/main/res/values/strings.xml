@@ -78,6 +78,7 @@
     <string name="app_name">Food App</string>
     <string name="food_name">Nama Makanan</string>
     <string name="description">Deskripsi</string>
+    <string name="share_with">share</string>
 
     <string-array name="data_name">
         <item>Ayam Betutu</item>
