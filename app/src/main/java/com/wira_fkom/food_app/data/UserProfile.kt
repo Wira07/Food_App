@@ -9,9 +9,7 @@ data class UserProfile(
     val imageResId: Int,
     val description: List<String> = listOf(),
     val isFavorite: Boolean = false,
-    val fullName: String = "",
     val email: String = "",
-    val linkedIn: String = "",
     val telepon: String = "",
     val github: String = "",
     var profileImage: String = ""

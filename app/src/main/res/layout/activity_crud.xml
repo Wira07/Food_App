@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/et_whatsapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="WhatsApp"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/et_instagram"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Instagram"
+        android:inputType="textUri" />
+
+    <EditText
+        android:id="@+id/et_github"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Github"
+        android:inputType="textUri" />
+
+    <Button
+        android:id="@+id/btn_save_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Profile" />
+</LinearLayout>
