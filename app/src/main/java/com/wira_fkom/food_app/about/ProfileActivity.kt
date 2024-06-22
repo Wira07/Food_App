@@ -1,12 +1,10 @@
 package com.wira_fkom.food_app.about
 
-import com.wira_fkom.food_app.R
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.wira_fkom.food_app.data.Profile
+import com.wira_fkom.food_app.databinding.ActivityProfileBinding
+import com.wira_fkom.food_app.data.RequestBody
 import com.wira_fkom.food_app.db.ApiResponse
 import com.wira_fkom.food_app.db.ApiService
 import com.wira_fkom.food_app.db.RetrofitClient
@@ -16,23 +14,14 @@ import retrofit2.Response
 
 class ProfileActivity : AppCompatActivity() {
 
-    private lateinit var tvEmail: TextView
-    private lateinit var tvWhatsapp: TextView
-    private lateinit var tvInstagram: TextView
-    private lateinit var tvGithub: TextView
-    private lateinit var btnEditProfile: Button
+    private lateinit var binding: ActivityProfileBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        tvEmail = findViewById(R.id.tv_email)
-        tvWhatsapp = findViewById(R.id.tv_whatsapp)
-        tvInstagram = findViewById(R.id.tv_instagram)
-        tvGithub = findViewById(R.id.tv_github)
-        btnEditProfile = findViewById(R.id.btn_edit_profile)
-
-        btnEditProfile.setOnClickListener {
+        binding.btnEditProfile.setOnClickListener {
             val intent = Intent(this, CrudActivity::class.java)
             startActivity(intent)
         }
@@ -42,7 +31,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun readProfile(id: Int) {
         val apiService = RetrofitClient.instance.create(ApiService::class.java)
-        val requestBody = Profile(action = "read", id = id)
+        val requestBody = RequestBody(action = "read", id = id)
 
         apiService.readUserProfile(requestBody).enqueue(object : Callback<ApiResponse> {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
@@ -51,10 +40,10 @@ class ProfileActivity : AppCompatActivity() {
                         if (it.status == "success") {
                             val profileData = it.data
                             profileData?.let { profile ->
-                                tvEmail.text = profile.email
-                                tvWhatsapp.text = profile.whatsapp
-                                tvInstagram.text = profile.instagram
-                                tvGithub.text = profile.github
+                                binding.tvEmail.text = profile.email
+                                binding.tvWhatsapp.text = profile.whatsapp
+                                binding.tvInstagram.text = profile.instagram
+                                binding.tvGithub.text = profile.github
                             }
                         }
                     }

@@ -72,7 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="wiralodrasaputra07@gmail.com"
+                        android:text=""
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
@@ -101,7 +101,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="+6281219195308"
+                        android:text=""
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
@@ -130,9 +130,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
+                        android:text=""
                         android:textColor="#000000"
-                        android:textSize="15sp"
-                        android:text="https://www.instagram.com/jawira_12"/>
+                        android:textSize="15sp" />
 
                     <View
                         android:layout_width="match_parent"
@@ -159,7 +159,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-light"
-                        android:text="https://github.com/Wira07"
+                        android:text=""
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
@@ -177,7 +177,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Edit Profile"
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="20dp" />
 
             </LinearLayout>
 
