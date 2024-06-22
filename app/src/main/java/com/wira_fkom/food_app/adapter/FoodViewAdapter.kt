@@ -12,7 +12,7 @@ import com.wira_fkom.food_app.ui.DeskripsiActivity
 
 class FoodViewAdapter(
     private val context: Context,
-    private val userProfiles: List<UserProfile>
+    private var userProfiles: List<UserProfile>
 ) : RecyclerView.Adapter<FoodViewAdapter.FoodViewHolder>() {
 
     private val favoriteList = mutableListOf<UserProfile>()
@@ -55,4 +55,9 @@ class FoodViewAdapter(
     }
 
     fun getFavorites(): List<UserProfile> = favoriteList
+
+    fun updateData(newProfiles: List<UserProfile>) {
+        userProfiles = newProfiles
+        notifyDataSetChanged()
+    }
 }
