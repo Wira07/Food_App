@@ -1,187 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/profile"
+    android:background="#FFF5E1"
     tools:context=".about.ProfileActivity">
 
+    <!-- Profile Image -->
     <RelativeLayout
-        android:id="@+id/rellay1"
-        android:layout_width="match_parent"
+        android:id="@+id/profile_image_container"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/sage"
-        android:paddingBottom="10dp">
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/profile"
+        android:layout_marginTop="24dp">
 
-        <RelativeLayout
-            android:id="@+id/imgUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/circle_border">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_photo_profile"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginStart="9dp"
-                android:layout_marginTop="9dp"
-                android:layout_marginEnd="9dp"
-                android:layout_marginBottom="9dp"
-                android:background="@drawable/circle_border"
-                android:padding="3dp"
-                android:src="@drawable/ic_person" />
-
-        </RelativeLayout>
-
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_person"
+            android:layout_centerInParent="true"
+            android:contentDescription="Profile Image" />
     </RelativeLayout>
 
-    <ScrollView
+    <!-- Personal Info Container -->
+    <LinearLayout
+        android:id="@+id/personal_info_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/rellay1">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_image_container"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/rounded_background"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <RelativeLayout
-            android:layout_marginTop="7dp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Informasi Pribadi"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Name Field -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Nama"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/linlay1">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/white"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:padding="8dp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="20dp"
-                android:orientation="vertical">
+        <!-- Email Field -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Email"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/white"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="8dp" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Email"
-                        android:textColor="@color/gray"
-                        android:textSize="18sp" />
+        <!-- Phone Number Field -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Telepon"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp" />
 
-                    <TextView
-                        android:id="@+id/tv_email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text=""
-                        android:textColor="#000000"
-                        android:textSize="15sp" />
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/white"
+            android:hint="Telepon"
+            android:inputType="phone"
+            android:padding="8dp" />
+    </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/gray" />
-                </LinearLayout>
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        android:layout_below="@id/personal_info_container"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/sage"
+        android:textColor="@android:color/white"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="WhatsApp"
-                        android:textColor="@color/gray"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/tv_whatsapp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text=""
-                        android:textColor="#000000"
-                        android:textSize="15sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/gray" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Instagram"
-                        android:textColor="@color/gray"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/tv_instagram"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text=""
-                        android:textColor="#000000"
-                        android:textSize="15sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/gray" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Github"
-                        android:textColor="@color/gray"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/tv_github"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-light"
-                        android:text=""
-                        android:textColor="#000000"
-                        android:textSize="15sp" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginTop="15dp"
-                        android:background="@color/gray" />
-                </LinearLayout>
-
-                <!-- Add Button for CRUD -->
-                <Button
-                    android:id="@+id/btn_edit_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Edit Profile"
-                    android:layout_marginTop="20dp" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-    </ScrollView>
 </RelativeLayout>

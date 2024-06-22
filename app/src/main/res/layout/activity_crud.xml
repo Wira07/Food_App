@@ -5,36 +5,32 @@
     android:padding="16dp">
 
     <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama"
+        android:inputType="textPersonName" />
+
+    <EditText
         android:id="@+id/et_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="15dp" />
 
     <EditText
-        android:id="@+id/et_whatsapp"
+        android:id="@+id/et_phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="WhatsApp"
-        android:inputType="phone" />
-
-    <EditText
-        android:id="@+id/et_instagram"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Instagram"
-        android:inputType="textUri" />
-
-    <EditText
-        android:id="@+id/et_github"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Github"
-        android:inputType="textUri" />
+        android:hint="Telepon"
+        android:inputType="phone"
+        android:layout_marginTop="15dp" />
 
     <Button
         android:id="@+id/btn_save_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Save Profile" />
+        android:text="Simpan"
+        android:layout_marginTop="20dp" />
 </LinearLayout>

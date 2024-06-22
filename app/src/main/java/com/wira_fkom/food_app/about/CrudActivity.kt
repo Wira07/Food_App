@@ -29,18 +29,16 @@ class CrudActivity : AppCompatActivity() {
     }
 
     private fun saveProfile() {
+        val name = binding.etName.text.toString()
         val email = binding.etEmail.text.toString()
-        val whatsapp = binding.etWhatsapp.text.toString()
-        val instagram = binding.etInstagram.text.toString()
-        val github = binding.etGithub.text.toString()
+        val phone = binding.etPhone.text.toString()
 
         val requestBody = RequestBody(
             action = "update",
             id = 1, // ID of the user to update
+            name = name,
             email = email,
-            whatsapp = whatsapp,
-            instagram = instagram,
-            github = github
+            phone = phone
         )
 
         val apiService = RetrofitClient.instance.create(ApiService::class.java)
