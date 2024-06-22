@@ -27,8 +27,8 @@ Selamat datang di **Food App**! Aplikasi ini dirancang untuk membantu pengguna m
 ## 🛠️ Teknologi yang Digunakan
 
 - Kotlin
-- Firebase
 - Material Design
+- MySQL
 
 ## 📚 Struktur Proyek
 
