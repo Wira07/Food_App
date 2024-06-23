@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -65,7 +64,8 @@
             android:background="@android:color/white"
             android:hint="Name"
             android:inputType="textPersonName"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:enabled="false" />
 
         <!-- Email Field -->
         <TextView
@@ -84,7 +84,8 @@
             android:background="@android:color/white"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:enabled="false" />
 
         <!-- Phone Number Field -->
         <TextView
@@ -103,21 +104,20 @@
             android:background="@android:color/white"
             android:hint="Telepon"
             android:inputType="phone"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:enabled="false" />
     </LinearLayout>
 
-    <!-- Save Button -->
+    <!-- Edit Button -->
     <Button
-        android:id="@+id/btn_save"
+        android:id="@+id/btn_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Simpan"
+        android:text="Edit"
         android:layout_below="@id/personal_info_container"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/sage"
         android:textColor="@android:color/white"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp" />
-
+        android:padding="12dp" />
 </RelativeLayout>

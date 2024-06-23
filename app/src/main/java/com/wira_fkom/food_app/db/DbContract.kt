@@ -6,4 +6,6 @@ object DbContract {
 
     val urlRegister = "http://$ip/server-api-food-app//api-register.php"
     val urlLogin = "http://$ip/server-api-food-app//api-login.php"
+    val urlProfile = "http://$ip/server-api-food-app//read_user_profile.php"
+    val update_user_profile = "http://$ip/server-api-food-app//read_user_profile.php"
 }

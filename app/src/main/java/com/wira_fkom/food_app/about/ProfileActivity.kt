@@ -1,5 +1,6 @@
 package com.wira_fkom.food_app.about
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -8,6 +9,7 @@ import com.wira_fkom.food_app.databinding.ActivityProfileBinding
 import com.wira_fkom.food_app.data.RequestBody
 import com.wira_fkom.food_app.db.ApiResponse
 import com.wira_fkom.food_app.db.ApiService
+import com.wira_fkom.food_app.db.DbContract
 import com.wira_fkom.food_app.db.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,18 +24,26 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnSave.setOnClickListener {
-            saveProfile()
+        binding.btnEdit.setOnClickListener {
+            val intent = Intent(this, CrudActivity::class.java)
+            startActivityForResult(intent, 1)
         }
 
         readProfile(1) // Retrieve profile for user with ID 1
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            readProfile(1)
+        }
     }
 
     private fun readProfile(id: Int) {
         val apiService = RetrofitClient.instance.create(ApiService::class.java)
         val requestBody = RequestBody(action = "read", id = id)
 
-        apiService.readUserProfile(requestBody).enqueue(object : Callback<ApiResponse> {
+        apiService.readUserProfile(DbContract.urlProfile, requestBody).enqueue(object : Callback<ApiResponse> {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -46,39 +56,6 @@ class ProfileActivity : AppCompatActivity() {
                             }
                         }
                     }
-                }
-            }
-
-            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
-                t.printStackTrace()
-            }
-        })
-    }
-
-    private fun saveProfile() {
-        val name = binding.etName.text.toString()
-        val email = binding.etEmail.text.toString()
-        val phone = binding.etPhone.text.toString()
-
-        val requestBody = RequestBody(
-            action = "update",
-            id = 1, // ID of the user to update
-            name = name,
-            email = email,
-            phone = phone
-        )
-
-        val apiService = RetrofitClient.instance.create(ApiService::class.java)
-        apiService.updateUserProfile(requestBody).enqueue(object : Callback<ApiResponse> {
-            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-                if (response.isSuccessful) {
-                    response.body()?.let {
-                        if (it.status == "success") {
-                            Toast.makeText(this@ProfileActivity, "Profile updated successfully", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Log.e("ProfileActivity", "Error: ${it.message}")
-                        }
-                    }
                 } else {
                     Log.e("ProfileActivity", "Response unsuccessful")
                 }
@@ -86,7 +63,7 @@ class ProfileActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
                 t.printStackTrace()
-                Log.e("ProfileActivity", "Failed to save profile")
+                Log.e("ProfileActivity", "Failed to read profile")
             }
         })
     }
