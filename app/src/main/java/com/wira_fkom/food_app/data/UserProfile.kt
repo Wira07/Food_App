@@ -10,8 +10,6 @@ data class UserProfile(
     val description: List<String> = listOf(),
     val isFavorite: Boolean = false,
     val email: String = "",
-    val whatsapp: String = "",
-    val instagram: String = "",
     val phone: String = "",
     val github: String = "",
     var profileImage: String = ""

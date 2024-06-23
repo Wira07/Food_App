@@ -41,9 +41,9 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun readProfile(id: Int) {
         val apiService = RetrofitClient.instance.create(ApiService::class.java)
-        val requestBody = RequestBody(action = "read", id = id)
+        val requestBody = RequestBody(action = "read", id = id, name = "", email = "", phone = "")
 
-        apiService.readUserProfile(DbContract.urlProfile, requestBody).enqueue(object : Callback<ApiResponse> {
+        apiService.readUserProfile(DbContract.read_user_profile, requestBody).enqueue(object : Callback<ApiResponse> {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
@@ -54,16 +54,24 @@ class ProfileActivity : AppCompatActivity() {
                                 binding.etEmail.setText(profile.email)
                                 binding.etPhone.setText(profile.phone)
                             }
+                        } else {
+                            Log.e("ProfileActivity", "Error: ${it.message}")
+                            Toast.makeText(this@ProfileActivity, "Failed to read profile: ${it.message}", Toast.LENGTH_SHORT).show()
                         }
+                    } ?: run {
+                        Log.e("ProfileActivity", "Response body is null")
+                        Toast.makeText(this@ProfileActivity, "Failed to read profile: Null response body", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Log.e("ProfileActivity", "Response unsuccessful")
+                    Log.e("ProfileActivity", "Response unsuccessful: ${response.errorBody()?.string()}")
+                    Toast.makeText(this@ProfileActivity, "Failed to read profile", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
                 t.printStackTrace()
-                Log.e("ProfileActivity", "Failed to read profile")
+                Log.e("ProfileActivity", "Failed to read profile: ${t.message}")
+                Toast.makeText(this@ProfileActivity, "Failed to read profile", Toast.LENGTH_SHORT).show()
             }
         })
     }

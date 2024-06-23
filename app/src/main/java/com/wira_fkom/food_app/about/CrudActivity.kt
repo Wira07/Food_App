@@ -29,6 +29,12 @@ class CrudActivity : AppCompatActivity() {
                 saveProfile()
             }
         }
+
+        binding.btnCreateProfile.setOnClickListener {
+            if (validateInput()) {
+                createUserProfile()
+            }
+        }
     }
 
     private fun validateInput(): Boolean {
@@ -95,6 +101,48 @@ class CrudActivity : AppCompatActivity() {
                 t.printStackTrace()
                 Log.e("CrudActivity", "Failed to save profile")
                 Toast.makeText(this@CrudActivity, "Failed to save profile", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun createUserProfile() {
+        val name = binding.etName.text.toString().trim()
+        val email = binding.etEmail.text.toString().trim()
+        val phone = binding.etPhone.text.toString().trim()
+
+        val requestBody = RequestBody(
+            action = "create",
+            id = 0, // Assuming 0 or another value for a new user
+            name = name,
+            email = email,
+            phone = phone
+        )
+
+        val apiService = RetrofitClient.instance.create(ApiService::class.java)
+        apiService.createUserProfile(requestBody).enqueue(object : Callback<ApiResponse> {
+            override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        if (it.status == "success") {
+                            Toast.makeText(this@CrudActivity, "Profile created successfully", Toast.LENGTH_SHORT).show()
+                            val intent = Intent()
+                            setResult(RESULT_OK, intent)
+                            finish()
+                        } else {
+                            Log.e("CrudActivity", "Error: ${it.message}")
+                            Toast.makeText(this@CrudActivity, "Failed to create profile: ${it.message}", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                } else {
+                    Log.e("CrudActivity", "Response unsuccessful")
+                    Toast.makeText(this@CrudActivity, "Failed to create profile", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+                t.printStackTrace()
+                Log.e("CrudActivity", "Failed to create profile")
+                Toast.makeText(this@CrudActivity, "Failed to create profile", Toast.LENGTH_SHORT).show()
             }
         })
     }

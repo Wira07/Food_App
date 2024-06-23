@@ -8,6 +8,9 @@ import retrofit2.http.Url
 
 interface ApiService {
     @POST
+    fun createUserProfile(@Body requestBody: RequestBody): Call<ApiResponse>
+
+    @POST
     fun readUserProfile(@Url url: String, @Body requestBody: RequestBody): Call<ApiResponse>
 
     @POST
