@@ -3,6 +3,7 @@ package com.wira_fkom.food_app.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import com.android.volley.AuthFailureError
 import com.android.volley.Request
@@ -22,6 +23,7 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         title = "Register"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.btnRegister.setOnClickListener {
             val email = binding.etEmail.text.toString()
@@ -52,9 +54,20 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Ada Data Yang Masih Kosong", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
-        binding.arrow.setOnClickListener {
-            finish()
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

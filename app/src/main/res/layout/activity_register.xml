@@ -3,53 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.RegisterActivity"
     android:padding="20dp"
-    android:background="@color/white">
-
-    <RelativeLayout
-        android:id="@+id/signUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:id="@+id/arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_arrow_back_24"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textSize="17dp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/poppins_regular"
-            android:text="Sign Up"/>
-
-    </RelativeLayout>
+    android:background="@color/white"
+    tools:context=".login.RegisterActivity">
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo_food_app"
-        android:layout_below="@id/signUp"/>
-
-    <RelativeLayout
-        android:id="@+id/back"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/image">
+        android:layout_alignParentTop="true"/>
 
         <TextView
-            android:layout_marginTop="5dp"
             android:id="@+id/welcome_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Selamat Datang!"
-            android:textSize="20dp"
+            android:textSize="20sp"
+            android:layout_below="@id/image"
             android:fontFamily="@font/poppins_bold"
             android:textColor="@color/black"/>
 
@@ -58,18 +30,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textColor="@color/black"
             android:text="di Aplikasi Resep Makanan"
-            android:layout_below="@id/welcome_back" />
-
-    </RelativeLayout>
+            android:layout_below="@id/welcome_back"
+            android:layout_marginTop="5dp" />
 
     <LinearLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/container"
-        android:layout_below="@+id/back"
+        android:layout_below="@id/AR"
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
@@ -78,56 +49,53 @@
             android:layout_height="wrap_content"
             app:endIconDrawable="@drawable/icround_email"
             app:endIconMode="custom"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
             android:layout_marginTop="10dp"
             app:hintTextAppearance="@style/MyHintTextAppearance"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:hint="Email"
-                android:textSize="20dp"/>
+                android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            app:passwordToggleEnabled="true"
             android:layout_marginTop="10dp"
+            app:passwordToggleEnabled="true"
             app:hintTextAppearance="@style/MyHintTextAppearance"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:hint="Password"
-                android:textSize="20dp"/>
+                android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilConPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginEnd="0dp"
-            app:passwordToggleEnabled="true"
             android:layout_marginTop="10dp"
+            app:passwordToggleEnabled="true"
             app:hintTextAppearance="@style/MyHintTextAppearance"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
             <EditText
                 android:id="@+id/etConPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:hint="Konformasi Password"
-                android:textSize="20dp"/>
+                android:hint="Konfirmasi Password"
+                android:textSize="16sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -145,11 +113,11 @@
 
     <LinearLayout
         android:id="@+id/bayar"
-        android:layout_below="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_below="@id/btnRegister"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
         <TextView
@@ -157,15 +125,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Apakah anda memiliki akun?"
-            android:layout_centerHorizontal="true"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/akun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Masuk"
-            android:layout_centerHorizontal="true"/>
+            android:text=" Masuk"
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 
