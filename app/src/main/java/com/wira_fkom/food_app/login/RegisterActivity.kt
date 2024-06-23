@@ -28,28 +28,33 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnRegister.setOnClickListener {
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
+            val conPassword = binding.etConPassword.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                val stringRequest = object : StringRequest(
-                    Request.Method.POST, DbContract.urlRegister,
-                    { response ->
-                        Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(applicationContext, LoginActivity::class.java))
-                    },
-                    { error ->
-                        Toast.makeText(applicationContext, error.toString(), Toast.LENGTH_SHORT).show()
-                    }) {
-                    @Throws(AuthFailureError::class)
-                    override fun getParams(): Map<String, String> {
-                        val params = HashMap<String, String>()
-                        params["username"] = email
-                        params["password"] = password
-                        return params
+            if (email.isNotEmpty() && password.isNotEmpty() && conPassword.isNotEmpty()) {
+                if (password == conPassword) {
+                    val stringRequest = object : StringRequest(
+                        Request.Method.POST, DbContract.urlRegister,
+                        { response ->
+                            Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(applicationContext, LoginActivity::class.java))
+                        },
+                        { error ->
+                            Toast.makeText(applicationContext, error.toString(), Toast.LENGTH_SHORT).show()
+                        }) {
+                        @Throws(AuthFailureError::class)
+                        override fun getParams(): Map<String, String> {
+                            val params = HashMap<String, String>()
+                            params["username"] = email
+                            params["password"] = password
+                            return params
+                        }
                     }
-                }
 
-                val requestQueue: RequestQueue = Volley.newRequestQueue(applicationContext)
-                requestQueue.add(stringRequest)
+                    val requestQueue: RequestQueue = Volley.newRequestQueue(applicationContext)
+                    requestQueue.add(stringRequest)
+                } else {
+                    Toast.makeText(applicationContext, "Password dan Konfirmasi Password tidak cocok", Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(applicationContext, "Ada Data Yang Masih Kosong", Toast.LENGTH_SHORT).show()
             }
