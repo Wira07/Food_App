@@ -1,18 +1,19 @@
 package com.wira_fkom.food_app.db
 
-import com.wira_fkom.food_app.data.RequestBody
+import com.wira_fkom.food_app.data.Profile
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.Url
+import retrofit2.http.*
 
 interface ApiService {
-    @POST
-    fun createUserProfile(@Body requestBody: RequestBody): Call<ApiResponse>
+    @POST("users/create")
+    fun createUser(@Body user: Profile): Call<Void>
 
-    @POST
-    fun readUserProfile(@Url url: String, @Body requestBody: RequestBody): Call<ApiResponse>
+    @GET("users/{id}")
+    fun readUser(@Path("id") id: Int): Call<Profile>
 
-    @POST
-    fun updateUserProfile(@Url url: String, @Body requestBody: RequestBody): Call<ApiResponse>
+    @PUT("users/{id}")
+    fun updateUser(@Path("id") id: Int, @Body user: Profile): Call<Void>
+
+    @DELETE("users/{id}")
+    fun deleteUser(@Path("id") id: Int): Call<Void>
 }
