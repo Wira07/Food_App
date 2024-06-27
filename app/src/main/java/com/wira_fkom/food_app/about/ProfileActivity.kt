@@ -1,27 +1,44 @@
 package com.wira_fkom.food_app.about
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.FirebaseApp
-import com.google.firebase.firestore.FirebaseFirestore
-import com.wira_fkom.food_app.databinding.ActivityProfileBinding
+import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import com.wira_fkom.food_app.data.Profile
+import com.wira_fkom.food_app.data.ProfileDatabase
+import com.wira_fkom.food_app.data.ProfileRepository
+import com.wira_fkom.food_app.databinding.ActivityProfileBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProfileBinding
-    private lateinit var firestore: FirebaseFirestore
+    private lateinit var profileDatabase: ProfileDatabase
+    private val profileViewModel: ProfileViewModel by viewModels {
+        ProfileViewModelFactory(ProfileRepository(profileDatabase.profileDao()))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        FirebaseApp.initializeApp(this)  // Ensure Firebase is initialized
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        firestore = FirebaseFirestore.getInstance()
+        // Initialize profileDatabase
+        profileDatabase = ProfileDatabase.getDatabase(this)
 
+        setupButtons()
+
+        // Observe all profiles
+        profileViewModel.allProfiles.observe(this, Observer { profiles ->
+            // Update UI with profiles data
+        })
+    }
+
+    private fun setupButtons() {
         binding.btnCreate.setOnClickListener { createUser() }
         binding.btnRead.setOnClickListener { readUser() }
         binding.btnUpdate.setOnClickListener { updateUser() }
@@ -29,105 +46,82 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun createUser() {
+        val user = collectUserData() ?: return
+
+        profileViewModel.addProfile(user)
+        Toast.makeText(this, "User created successfully!", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun readUser() {
+        val id = binding.etId.text.toString().toIntOrNull()
+        if (id == null) {
+            Toast.makeText(this, "Please enter a valid ID", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        profileViewModel.getProfile(id).observe(this, Observer { user ->
+            if (user != null) {
+                populateUserData(user)
+            } else {
+                Toast.makeText(this, "User not found!", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun updateUser() {
+        val id = binding.etId.text.toString().toIntOrNull()
+        if (id == null) {
+            Toast.makeText(this, "Please enter a valid ID", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val user = collectUserData() ?: return
+
+        profileViewModel.updateProfile(user.copy(id = id))
+        Toast.makeText(this, "User updated successfully!", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun deleteUser() {
+        val id = binding.etId.text.toString().toIntOrNull()
+        if (id == null) {
+            Toast.makeText(this, "Please enter a valid ID", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        lifecycleScope.launch {
+            val user = withContext(Dispatchers.IO) {
+                profileDatabase.profileDao().getProfile(id)
+            }
+            withContext(Dispatchers.Main) {
+                if (user != null) {
+                    withContext(Dispatchers.IO) {
+                        profileViewModel.deleteProfile(user)
+                    }
+                    Toast.makeText(this@ProfileActivity, "User deleted successfully!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@ProfileActivity, "User not found!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    private fun collectUserData(): Profile? {
         val name = binding.etName.text.toString()
         val email = binding.etEmail.text.toString()
         val phone = binding.etPhone.text.toString()
 
         if (name.isEmpty() || email.isEmpty() || phone.isEmpty()) {
             Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
-            return
+            return null
         }
 
-        val user = Profile(name = name, email = email, phone = phone)
-
-        firestore.collection("users")
-            .add(user)
-            .addOnSuccessListener { documentReference ->
-                Log.d("CreateUser", "DocumentSnapshot added with ID: ${documentReference.id}")
-                Toast.makeText(this, "User created successfully!", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener { e ->
-                Log.w("CreateUser", "Error adding document", e)
-                Toast.makeText(this, "Failed to create user!", Toast.LENGTH_SHORT).show()
-            }
+        return Profile(name = name, email = email, phone = phone)
     }
 
-    private fun readUser() {
-        val id = binding.etId.text.toString()
-        if (id.isEmpty()) {
-            Toast.makeText(this, "Please enter a valid ID", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        firestore.collection("users")
-            .document(id)
-            .get()
-            .addOnSuccessListener { document ->
-                if (document != null && document.exists()) {
-                    val user = document.toObject(Profile::class.java)
-                    if (user != null) {
-                        binding.etName.setText(user.name)
-                        binding.etEmail.setText(user.email)
-                        binding.etPhone.setText(user.phone)
-                    } else {
-                        Toast.makeText(this, "User not found!", Toast.LENGTH_SHORT).show()
-                    }
-                } else {
-                    Toast.makeText(this, "User not found!", Toast.LENGTH_SHORT).show()
-                }
-            }
-            .addOnFailureListener { e ->
-                Log.e("ReadUser", "Error getting document", e)
-                Toast.makeText(this, "Failed to fetch user!", Toast.LENGTH_SHORT).show()
-            }
-    }
-
-    private fun updateUser() {
-        val id = binding.etId.text.toString()
-        if (id.isEmpty()) {
-            Toast.makeText(this, "Please enter a valid ID", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        val user = Profile(
-            name = binding.etName.text.toString(),
-            email = binding.etEmail.text.toString(),
-            phone = binding.etPhone.text.toString()
-        )
-
-        if (user.name.isEmpty() || user.email.isEmpty() || user.phone.isEmpty()) {
-            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        firestore.collection("users")
-            .document(id)
-            .set(user)
-            .addOnSuccessListener {
-                Toast.makeText(this, "User updated successfully!", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener { e ->
-                Log.e("UpdateUser", "Error updating document", e)
-                Toast.makeText(this, "Failed to update user!", Toast.LENGTH_SHORT).show()
-            }
-    }
-
-    private fun deleteUser() {
-        val id = binding.etId.text.toString()
-        if (id.isEmpty()) {
-            Toast.makeText(this, "Please enter a valid ID", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        firestore.collection("users")
-            .document(id)
-            .delete()
-            .addOnSuccessListener {
-                Toast.makeText(this, "User deleted successfully!", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener { e ->
-                Log.e("DeleteUser", "Error deleting document", e)
-                Toast.makeText(this, "Failed to delete user!", Toast.LENGTH_SHORT).show()
-            }
+    private fun populateUserData(user: Profile) {
+        binding.etName.setText(user.name)
+        binding.etEmail.setText(user.email)
+        binding.etPhone.setText(user.phone)
+        binding.etId.setText(user.id.toString())  // Populate the ID field
     }
 }

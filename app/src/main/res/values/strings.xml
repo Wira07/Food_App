@@ -79,6 +79,7 @@
     <string name="food_name">Nama Makanan</string>
     <string name="description">Deskripsi</string>
     <string name="share_with">share</string>
+    <string name="save">save</string>
 
     <string-array name="data_name">
         <item>Ayam Betutu</item>
@@ -299,7 +300,7 @@ Bahan Bumbu Halus:
 </item>
     </string-array>
 
-    <integer-array name="data_photo">
+    <array name="data_photo">
         <item>@drawable/ayam_betutu</item>
         <item>@drawable/pempek</item>
         <item>@drawable/soto_padang</item>
@@ -310,5 +311,5 @@ Bahan Bumbu Halus:
         <item>@drawable/nasi_uduk</item>
         <item>@drawable/mie_goreng_jawa</item>
         <item>@drawable/sate_lilit_bali</item>
-    </integer-array>
+    </array>
 </resources>
