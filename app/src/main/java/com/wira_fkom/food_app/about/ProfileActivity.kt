@@ -1,5 +1,6 @@
 package com.wira_fkom.food_app.about
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -27,6 +28,8 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        title = "Profile"
+
         // Initialize profileDatabase
         profileDatabase = ProfileDatabase.getDatabase(this)
 
@@ -49,6 +52,13 @@ class ProfileActivity : AppCompatActivity() {
         val user = collectUserData() ?: return
 
         profileViewModel.addProfile(user)
+
+        // Launch ProfileDetailsActivity with the created profile
+        val intent = Intent(this, ProfileDetailsActivity::class.java).apply {
+            putExtra("profile", user)
+        }
+        startActivity(intent)
+
         Toast.makeText(this, "User created successfully!", Toast.LENGTH_SHORT).show()
     }
 
