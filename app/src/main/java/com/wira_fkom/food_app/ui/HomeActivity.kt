@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.wira_fkom.food_app.R
 import com.wira_fkom.food_app.about.ProfileActivity
+import com.wira_fkom.food_app.about.ProfileDetailsActivity
 import com.wira_fkom.food_app.adapter.FoodViewAdapter
 import com.wira_fkom.food_app.data.UserProfile
 import com.wira_fkom.food_app.databinding.ActivityHomeBinding
@@ -48,7 +49,7 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
+                    val intent = Intent(this, ProfileDetailsActivity::class.java)
                     startActivity(intent)
                     true
                 }

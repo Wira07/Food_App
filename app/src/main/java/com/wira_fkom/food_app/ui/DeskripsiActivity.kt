@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wira_fkom.food_app.R
 import com.wira_fkom.food_app.about.ProfileActivity
+import com.wira_fkom.food_app.about.ProfileDetailsActivity
 import com.wira_fkom.food_app.adapter.DescriptionAdapter
 import com.wira_fkom.food_app.adapter.FoodViewAdapter
 import com.wira_fkom.food_app.databinding.ActivityDeskripsiBinding
@@ -55,7 +56,7 @@ class DeskripsiActivity : AppCompatActivity() {
                     true
                 }
                 R.id.navigation_profile -> {
-                    val intent = Intent(this, ProfileActivity::class.java)
+                    val intent = Intent(this, ProfileDetailsActivity::class.java)
                     startActivity(intent)
                     true
                 }
