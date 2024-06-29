@@ -10,6 +10,7 @@ import com.wira_fkom.food_app.data.Profile
 import com.wira_fkom.food_app.data.ProfileDatabase
 import com.wira_fkom.food_app.databinding.ActivityProfileDetailsBinding
 import com.wira_fkom.food_app.ui.FavoriteActivity
+import com.wira_fkom.food_app.ui.HomeActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -48,7 +49,10 @@ class ProfileDetailsActivity : AppCompatActivity() {
 
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.navigation_home -> true
+                R.id.navigation_home -> {
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    true
+                }
                 R.id.navigation_favorite -> {
                     val intent = Intent(this, FavoriteActivity::class.java).apply {
                         // Assuming you have an adapter object and getFavorites() method in scope
