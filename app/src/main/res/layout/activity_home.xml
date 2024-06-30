@@ -24,7 +24,8 @@
         android:layout_toEndOf="@id/profileImage"
         android:layout_alignTop="@id/profileImage"
         android:layout_marginStart="8dp"
-        android:text="Jaehyun"
+        android:layout_marginTop="8dp"
+        android:text="Wira Sukma Saputra"
         android:textSize="18sp"
         android:textColor="@android:color/black"
         android:textStyle="bold" />

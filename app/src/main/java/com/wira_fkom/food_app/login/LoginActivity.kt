@@ -1,3 +1,4 @@
+// LoginActivity.kt
 package com.wira_fkom.food_app.login
 
 import android.content.Intent
@@ -52,6 +53,11 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(applicationContext, "Password Atau Username Salah", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        // Add this part for forgot password functionality
+        binding.forgot.setOnClickListener {
+            startActivity(Intent(applicationContext, ForgotPasswordActivity::class.java))
         }
     }
 }
