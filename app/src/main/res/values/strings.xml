@@ -80,6 +80,7 @@
     <string name="description">Deskripsi</string>
     <string name="share_with">share</string>
     <string name="save">save</string>
+    <string name="profile_picture">Profile</string>
 
     <string-array name="data_name">
         <item>Ayam Betutu</item>

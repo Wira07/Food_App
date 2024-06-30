@@ -23,149 +23,89 @@
         android:id="@+id/imgProfile"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/logo_food_app"
+        android:src="@drawable/ic_person"
         android:layout_below="@id/tvId"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/profile_picture" />
 
-    <!-- Profile Name -->
+    <!-- Name Field -->
     <TextView
-        android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wira Sukma Saputra"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:layout_below="@id/imgProfile"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp" />
+        android:text="NAME"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_below="@id/imgProfile" />
 
-
-    <!-- Card for Name -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardName"
-        android:layout_marginTop="25dp"
+    <EditText
+        android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvName"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp"
+        android:text="Gail Forcewind"
+        android:textSize="18sp"
         android:layout_margin="16dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp">
+        android:padding="8dp"
+        android:background="@android:color/white"
+        android:gravity="start"
+        android:inputType="textPersonName"
+        android:layout_below="@id/imgProfile" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <!-- Email Field -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EMAIL"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_below="@id/etName" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="NAME"
-                android:textSize="14sp"
-                android:layout_marginBottom="8dp"
-                android:textColor="@android:color/darker_gray" />
-
-            <EditText
-                android:id="@+id/etName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Gail Forcewind"
-                android:textSize="18sp"
-                android:layout_marginBottom="8dp"
-                android:padding="8dp"
-                android:background="@android:color/white"
-                android:gravity="start"
-                android:inputType="textPersonName" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- Card for Email -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardEmail"
+    <EditText
+        android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cardName"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp"
+        android:text="gailforcewind@mail.com"
+        android:textSize="18sp"
         android:layout_margin="16dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp">
+        android:padding="8dp"
+        android:background="@android:color/white"
+        android:gravity="start"
+        android:inputType="textEmailAddress"
+        android:layout_below="@id/etName" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <!-- Phone Field -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PHONE"
+        android:textSize="14sp"
+        android:layout_marginStart="16dp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_below="@id/etEmail" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="EMAIL"
-                android:textSize="14sp"
-                android:layout_marginBottom="8dp"
-                android:textColor="@android:color/darker_gray" />
-
-            <EditText
-                android:id="@+id/etEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="gailforcewind@mail.com"
-                android:textSize="18sp"
-                android:layout_marginBottom="8dp"
-                android:padding="8dp"
-                android:background="@android:color/white"
-                android:gravity="start"
-                android:inputType="textEmailAddress" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- Card for Phone -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardPhone"
+    <EditText
+        android:id="@+id/etPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cardEmail"
-        android:layout_marginBottom="16dp"
-        android:padding="16dp"
+        android:text="+1 652 254 7625"
+        android:textSize="18sp"
         android:layout_margin="16dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="8dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="PHONE"
-                android:textSize="14sp"
-                android:layout_marginBottom="8dp"
-                android:textColor="@android:color/darker_gray" />
-
-            <EditText
-                android:id="@+id/etPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="+1 652 254 7625"
-                android:textSize="18sp"
-                android:layout_marginBottom="8dp"
-                android:padding="8dp"
-                android:background="@android:color/white"
-                android:gravity="start"
-                android:inputType="phone" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        android:padding="8dp"
+        android:background="@android:color/white"
+        android:gravity="start"
+        android:inputType="phone"
+        android:layout_below="@id/etEmail" />
 
     <!-- Edit and Save Buttons Layout -->
     <LinearLayout
         android:id="@+id/buttonsLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cardPhone"
+        android:layout_below="@id/etPhone"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
         android:gravity="center">
@@ -194,6 +134,7 @@
             android:drawableLeft="@android:drawable/ic_menu_save"
             android:background="@android:color/holo_blue_light"
             android:textColor="@android:color/white" />
+
     </LinearLayout>
 
     <!-- Bottom Navigation -->

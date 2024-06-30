@@ -1,9 +1,17 @@
 package com.wira_fkom.food_app.about
 
+import android.Manifest
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.wira_fkom.food_app.R
 import com.wira_fkom.food_app.data.Profile
@@ -14,12 +22,32 @@ import com.wira_fkom.food_app.ui.HomeActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.FileOutputStream
+import java.io.IOException
 
 class ProfileDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProfileDetailsBinding
     private lateinit var profileDatabase: ProfileDatabase
     private var profile: Profile? = null
+
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
+        if (isGranted) {
+            openGallery()
+        } else {
+            Toast.makeText(this, "Permission denied to read external storage", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private val pickImageLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val imageUri: Uri? = result.data?.data
+            imageUri?.let {
+                val imagePath = saveImageToInternalStorage(it)
+                binding.imgProfile.setImageURI(Uri.parse(imagePath))
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +57,31 @@ class ProfileDetailsActivity : AppCompatActivity() {
         title = "Profile Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // Initialize profileDatabase
         profileDatabase = ProfileDatabase.getDatabase(this)
 
-        profile = intent.getParcelableExtra<Profile>("profile")
+        profile = intent.getParcelableExtra("profile")
         profile?.let { populateUserData(it) }
 
         binding.btnSave.setOnClickListener { saveUserData() }
-
         binding.btnEditProfile.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
+
+        binding.imgProfile.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+            } else {
+                openGallery()
+            }
+        }
+
         setupBottomNavigation()
+    }
+
+    private fun openGallery() {
+        val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        pickImageLauncher.launch(intent)
     }
 
     private fun setupBottomNavigation() {
@@ -55,7 +95,6 @@ class ProfileDetailsActivity : AppCompatActivity() {
                 }
                 R.id.navigation_favorite -> {
                     val intent = Intent(this, FavoriteActivity::class.java).apply {
-                        // Assuming you have an adapter object and getFavorites() method in scope
                         // putParcelableArrayListExtra("EXTRA_FAVORITES", ArrayList(adapter.getFavorites()))
                     }
                     startActivity(intent)
@@ -93,6 +132,23 @@ class ProfileDetailsActivity : AppCompatActivity() {
                     Toast.makeText(this@ProfileDetailsActivity, "Profile updated successfully!", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+    }
+
+    private fun saveImageToInternalStorage(imageUri: Uri): String? {
+        val fileName = "profile_image_${System.currentTimeMillis()}.jpg"
+        var fos: FileOutputStream? = null
+        return try {
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imageUri)
+            fos = openFileOutput(fileName, MODE_PRIVATE)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
+            fos.flush()
+            "$filesDir/$fileName"
+        } catch (e: IOException) {
+            e.printStackTrace()
+            null
+        } finally {
+            fos?.close()
         }
     }
 }
