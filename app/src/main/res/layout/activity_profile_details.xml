@@ -21,8 +21,8 @@
     <!-- Profile Picture -->
     <ImageView
         android:id="@+id/imgProfile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:src="@drawable/ic_person"
         android:layout_below="@id/tvId"
         android:layout_centerHorizontal="true"
@@ -32,6 +32,7 @@
 
     <!-- Name Field -->
     <TextView
+        android:id="@+id/etname2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NAME"
@@ -45,14 +46,17 @@
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gail Forcewind"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:padding="8dp"
+        android:layout_below="@id/etname2"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@android:color/white"
         android:gravity="start"
         android:inputType="textPersonName"
-        android:layout_below="@id/imgProfile" />
+        android:padding="8dp"
+        android:text="Gail Forcewind"
+        android:textSize="18sp" />
 
     <!-- Email Field -->
     <TextView
@@ -68,14 +72,17 @@
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="gailforcewind@mail.com"
-        android:textSize="18sp"
-        android:layout_margin="16dp"
-        android:padding="8dp"
+        android:layout_below="@id/etName"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:background="@android:color/white"
         android:gravity="start"
         android:inputType="textEmailAddress"
-        android:layout_below="@id/etName" />
+        android:padding="8dp"
+        android:text="gailforcewind@mail.com"
+        android:textSize="18sp" />
 
     <!-- Phone Field -->
     <TextView
@@ -107,13 +114,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/etPhone"
         android:layout_marginTop="16dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center">
 
         <!-- Edit Profile Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnEditProfile"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:text="Edit Profile"
             android:padding="8dp"
@@ -121,18 +128,31 @@
             android:drawableLeft="@android:drawable/ic_menu_edit"
             android:background="@android:color/holo_orange_light"
             android:textColor="@android:color/white"
-            android:layout_marginEnd="16dp" />
+            android:layout_marginBottom="8dp" />
 
         <!-- Save Button -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
+            android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:text="Save"
             android:padding="8dp"
             android:textSize="18sp"
             android:drawableLeft="@android:drawable/ic_menu_save"
             android:background="@android:color/holo_blue_light"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Delete Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnDelete"
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:padding="8dp"
+            android:textSize="18sp"
+            android:drawableLeft="@android:drawable/ic_menu_delete"
+            android:background="@android:color/holo_red_light"
             android:textColor="@android:color/white" />
 
     </LinearLayout>

@@ -10,7 +10,6 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.wira_fkom.food_app.databinding.ActivityForgotPasswordBinding
 import com.wira_fkom.food_app.db.DbContract
-import java.nio.charset.Charset
 
 class ForgotPasswordActivity : AppCompatActivity() {
 
@@ -36,7 +35,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
                         if (response == "Email Sent") {
                             Toast.makeText(applicationContext, "Reset Password Email Sent", Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(applicationContext, "Failed to Send Email", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, response, Toast.LENGTH_SHORT).show()
                         }
                     },
                     Response.ErrorListener { error ->

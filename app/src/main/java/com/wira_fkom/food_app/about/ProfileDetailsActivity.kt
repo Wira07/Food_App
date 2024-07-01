@@ -67,6 +67,7 @@ class ProfileDetailsActivity : AppCompatActivity() {
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
+        binding.btnDelete.setOnClickListener { deleteUserData() }
 
         binding.imgProfile.setOnClickListener {
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -133,6 +134,28 @@ class ProfileDetailsActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun deleteUserData() {
+        profile?.let {
+            lifecycleScope.launch {
+                withContext(Dispatchers.IO) {
+                    profileDatabase.profileDao().deleteProfile(it)
+                }
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@ProfileDetailsActivity, "Profile deleted successfully!", Toast.LENGTH_SHORT).show()
+                    clearUserData()
+                }
+            }
+        }
+    }
+
+    private fun clearUserData() {
+        binding.etName.setText("")
+        binding.etEmail.setText("")
+        binding.etPhone.setText("")
+        binding.imgProfile.setImageResource(R.drawable.ic_person)
+        binding.tvId.text = ""
     }
 
     private fun saveImageToInternalStorage(imageUri: Uri): String? {
